@@ -1,0 +1,23 @@
+{
+  "name": "industryproject-team-no-sleep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "costCalculator.js",
+  "dependencies": {
+    "three": "^0.109.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kullen7117/industryproject-team-no-sleep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kullen7117/industryproject-team-no-sleep/issues"
+  },
+  "homepage": "https://github.com/Kullen7117/industryproject-team-no-sleep#readme"
+}
