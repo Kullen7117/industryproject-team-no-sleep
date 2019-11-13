@@ -13,6 +13,6 @@
  * 
  *  -----------------------------------------------------------------*/
 
-function calculatePrintingPrice(){
+function calculatePrintingPrice(volume, printTime, resinPrice ){
     //not implemented yet
 }
