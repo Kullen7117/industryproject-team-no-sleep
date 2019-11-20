@@ -209,3 +209,33 @@ body {margin: 0;}
     color:red;
     cursor:pointer;
 }
+
+header
+{
+    text-align:center;
+    border: 1px solid #909090;
+    border-radius: 12px;
+    padding:5px;
+    margin:5px;
+    background:#FFFFFF;
+}
+
+footer
+{
+    float:right;
+    font:14px Arial;color:#1010FF;
+    margin:30px;
+}
+
+footer a {text-decoration:none;font:14px Arial;color:#1010FF;}
+footer a:hover {text-decoration:none;font:14px Arial;color:#1010FF;}
+
+h2 {margin-bottom:5px;margin-top:0px;}
+
+h4 {margin-left:20px;margin-bottom:1px;margin-top:2px;color:#202050;}
+h5 {margin-left:20px;margin-bottom:2px;margin-top:0px;font-weight: normal;}
+
+.stitle
+{
+    font:20px Arial;color:#2020DD;margin:10px 30px 10px 30px;
+}

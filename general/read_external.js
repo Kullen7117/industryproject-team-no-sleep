@@ -108,3 +108,4 @@ function del_temp_file(f)
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("filename="+f);
 }
+
