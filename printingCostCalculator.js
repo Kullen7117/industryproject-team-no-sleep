@@ -13,6 +13,21 @@
  * 
  *  -----------------------------------------------------------------*/
 
-function calculatePrintingPrice(volume, printTime, resinPrice ){
+function calculatePrintingPrice(volume, printTime, resinType ){
     //not implemented yet
+    let inLiters = volume * 0.0000010 //convert to Liters
+
+    let totalPrice = inLiters * resinPrice
+
+    //switch statment
+
+    return totalPrice
 }
+
+var vol = 16273
+var time = 0
+var resinPrice = 59.9
+
+var printPrice = calculatePrintingPrice(vol, time, resinPrice)
+
+console.log('the price is ' + printPrice + 'boom baby!')
