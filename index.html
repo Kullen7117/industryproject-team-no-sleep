@@ -935,7 +935,7 @@
 							</div>
 		
 						<div id="statswrap" style="width:0px;height:0px;">
-				<div style="width:280px;overflow:hidden;">
+				<div style="width:350px;overflow:hidden;">
 					<h1 id="ifilename" style="visibility:hidden;">_</h1>
 				
 					<div class="cinfo">
@@ -1029,8 +1029,20 @@
 					</div>
 
 					<div class="cinfo">
-						<h2>Actions</h2>
-						<div class="cact" onclick="open_img();"><span>Snap a picture</span></div>
+						<h2>Price Calculator</h2>
+						<div><span>Chose your resin type: 
+								<form action="/action_page.php">
+									<select name="cars" style="width: 100px;">
+									  <option value="PrimaCreator Value UV/DLP Resin - Lightgrey">PrimaCreator Value UV/DLP Resin - Lightgrey</option>
+									  <option value="PrimaCreator Value UV/DLP Resin - Transparent-Red">PrimaCreator Value UV/DLP Resin - Transparent-Red</option>
+									  <option value="Photocentric3D UV DLP Firm Resin - Grey">Photocentric3D UV DLP Firm Resin - Grey</option>
+									  <option value="BlueCast Original DLP Resin - Blue">BlueCast Original DLP Resin - Blue</option>
+									  <option value="BlueCast x5 Resin">BlueCast x5 Resin</option>
+									  <option value="Zortrax Raydent Surgical Guide Resin">Zortrax Raydent Surgical Guide Resin</option>
+									</select>
+									<br><br>
+									<input type="submit">
+								</form></span></div>
 						<div>Check if print-ready (coming soon)</div>
 						<div style="margin-top:10px;margin-bottom:10px;" onclick="send_to_ts();"><span class="btn-ts">3D Print with Treatstock</span></div>
 						<div style="margin-top:20px;margin-bottom:10px;" onclick="save_stl();"><span class="btn-stc">Save to computer</span></div>
