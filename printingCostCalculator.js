@@ -17,9 +17,7 @@
      //not implemented yet
      let inLiters = volume * 0.0000010 //convert to Liters
 
-     let totalPrice = inLiters * resinPrice
-
-     //switch statment
+     //switch statment each case is a type of resin
      switch (resinType) {
          case 'pcLightgrey':
              return inLiters * 59.90;
@@ -43,14 +41,4 @@
              return 0;
              break;
      }
-
-     return totalPrice
- }
-
- var vol = 16273
- var time = 0
- var resinPrice = 'zrsgr'
-
- var printPrice = calculatePrintingPrice(vol, time, resinPrice)
-
- console.log('the price is ' + printPrice + 'boom baby!')
+    }
