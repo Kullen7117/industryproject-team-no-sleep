@@ -1031,7 +1031,7 @@
 
 					<div class="cinfo">
 						<h2>Price Calculator</h2>
-						<div id="calc"><span>Chose your resin type: 
+						<div ><span>Chose your resin type: 
 								<form>
 									<select id="resin" style="width: 100px;">
 									  <option value="pcLightgrey">PrimaCreator Value UV/DLP Resin - Lightgrey</option>
@@ -1043,7 +1043,8 @@
 									</select>
 								</form>
 								<button type="button" onclick=getThePrice()>Calculate Price</button>
-
+								<br>
+								<div id="calc"></div>
 								<script>
 									function getThePrice(){
 										var rt = document.getElementById("resin");
