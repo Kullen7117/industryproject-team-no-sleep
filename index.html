@@ -18,6 +18,7 @@
 		<script src="general/read_internal.js"></script>
 		<script src="general/read_external.js"></script>
 		<script src="printingCostCalculator.js"></script>
+		<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 
 		<script> var need_browser=false; </script>
 
@@ -660,7 +661,7 @@
 				if ($id('fileselect').value=='') return;
 				
 				upload_file($id('fileselect').files[0]);
-			}			
+			}	
 			
 			function open_img()
 			{
@@ -732,6 +733,10 @@
 			{
 				if (waiting) return;
 				if (!mesh) return;
+
+				var pdf = new jsPDF()
+				pdf.text('Hello world!', 10, 10)
+				pdf.save('a4.pdf')	
 				
 				/*
 				var form = document.createElement("form");
@@ -1057,10 +1062,10 @@
 							<br>
 						<div><h2>LaTex pdf Part</h2></div>
 						<br><br><br>
-<!--					<div style="margin-top:10px;margin-bottom:10px;" onclick="send_to_ts();"><span class="btn-ts">3D Print with Treatstock</span></div>
+					<div style="margin-top:10px;margin-bottom:10px;" onclick="save_stl();"><span class="btn-ts">3D Print with Treatstock</span></div>
 						<div style="margin-top:20px;margin-bottom:10px;" onclick="save_stl();"><span class="btn-stc">Save to computer</span></div>
 						<div style="margin-top:20px;margin-bottom:10px;" onclick="add_watermark();"><span class="btn-wm">&nbsp;</span></div>
--->
+
 					</div>
 
 					
