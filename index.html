@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-
-
 <html lang="en">
 	<head>
 		<title>OPT's Printing Price Calculator</title>
@@ -1043,7 +1040,7 @@
 									</select>
 								</form>
 								<button type="button" onclick=getThePrice()>Calculate Price</button>
-								<br>
+								<br><br>
 								<div id="calc"></div>
 								<script>
 									function getThePrice(){
@@ -1055,9 +1052,46 @@
 								</script>
 							</span></div>
 							<br>
+						<h2>Printing Time</h2>
+						<div>
+							<div class="measure">0.1mm  0.2mm 0.3mm  0.4mm</div>
+							  <input id="printSpeed" type="range" min="0.1" max="0.4" step="0.1" list="steplist">
+							  <datalist id="steplist">
+								<option value="0.1" label="0.1">0.1</option>
+								<option value="0.2" label="0.1">0.2</option>
+								<option value="0.3" label="0.1">0.3</option>
+								<option value="0.4" label="0.1">0.4</option>
+							  </datalist>
+							<button type="button" onclick=getPrintTime()>Aprox. Print Time (mm/sec)</button>
+							<br><br>
+							<div id="speed"></div>
+							<script>
+								function getPrintTime(){
+									var ps = document.getElementById("printSpeed").value
+									//xsize, ysize, zsize
+									var maxAxis = Math.max(xsize, ysize, zsize)
+
+									if (file_units==view_units){
+										var printSpeed = maxAxis/ps
+										document.getElementById("speed").innerHTML = 'Printing Speed: ' + printSpeed.toFixed(2) + ' seconds. ' 
+									}
+									else if (file_units==1)
+										//file in mm, view in inches
+										maxAxis = maxAxis/25.4
+									else
+										//file in inches, view in mm
+										maxAxis = maxAxis*25.4
+	
+									var printSpeed = maxAxis/ps
+									document.getElementById("speed").innerHTML = 'Printing Speed: ' + printSpeed.toFixed(2) + ' seconds. ' 
+								}
+							</script>
+						</div>
+						<br>	
 						<div><h2>LaTex pdf Part</h2></div>
 						<br><br><br>
-<!--					<div style="margin-top:10px;margin-bottom:10px;" onclick="send_to_ts();"><span class="btn-ts">3D Print with Treatstock</span></div>
+<!--					
+						<div style="margin-top:10px;margin-bottom:10px;" onclick="send_to_ts();"><span class="btn-ts">3D Print with Treatstock</span></div>
 						<div style="margin-top:20px;margin-bottom:10px;" onclick="save_stl();"><span class="btn-stc">Save to computer</span></div>
 						<div style="margin-top:20px;margin-bottom:10px;" onclick="add_watermark();"><span class="btn-wm">&nbsp;</span></div>
 -->
