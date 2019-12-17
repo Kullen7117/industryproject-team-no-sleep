@@ -997,7 +997,7 @@
 								</script>
 							</span></div>
 							<br>
-							<h2>Printing Time</h2>
+							<h2>Choose Printing Speed</h2>
 							<div>
 								<div class="measure">0.1mm  0.2mm 0.3mm  0.4mm</div>
 								  <input id="printSpeed" type="range" min="0.1" max="0.4" step="0.1" list="steplist">
@@ -1007,7 +1007,7 @@
 									<option value="0.3" label="0.1">0.3</option>
 									<option value="0.4" label="0.1">0.4</option>
 								  </datalist>
-								<button type="button" onclick=getPrintTime()>Aprox. Print Time (mm/sec)</button>
+								<button type="button" onclick=getPrintTime()>Approx. Print Time (mm/sec)</button>
 								<br><br>
 								<div id="speed"></div>
 								<script>
@@ -1018,7 +1018,7 @@
 	
 										if (file_units==view_units){
 											var printSpeed = maxAxis/ps
-											document.getElementById("speed").innerHTML = 'Printing Speed: ' + printSpeed.toFixed(2) + ' seconds. ' 
+											document.getElementById("speed").innerHTML = printSpeed.toFixed(2) + ' seconds' 
 										}
 										else if (file_units==1)
 											//file in mm, view in inches
@@ -1028,15 +1028,15 @@
 											maxAxis = maxAxis*25.4
 		
 										var printSpeed = maxAxis/ps
-										document.getElementById("speed").innerHTML = 'Printing Speed: ' + printSpeed.toFixed(2) + ' seconds. ' 
+										document.getElementById("speed").innerHTML = printSpeed.toFixed(2) + ' seconds' 
 									}
 								</script>
 							</div>
 							<br>
-						<div><h2>LaTex pdf Part</h2></div>
+					
 <!--						<br><br><br>
 					<div style="margin-top:10px;margin-bottom:10px;" onclick="generate_PDF();"><span class="btn-ts">3D Print with Treatstock</span></div>
--->						<div style="margin-top:20px;margin-bottom:10px;" onclick="generate_PDF();"><span class="btn-stc">Save to computer</span></div>
+-->						<div style="margin-top:20px;margin-bottom:10px;" onclick="generate_PDF();"><span class="btn-stc">Save to PDF</span></div>
 <!--						<div style="margin-top:20px;margin-bottom:10px;" onclick="add_watermark();"><span class="btn-wm">&nbsp;</span></div>
 -->
 <script>
@@ -1054,14 +1054,15 @@ function generate_PDF()
 		var canvas = document.querySelector('#cjcwrap canvas')
         var previewImage = canvas.toDataURL('image/png')    
         const model_name = document.getElementById('ifilename').innerText
-        const bounding_box = document.getElementById('isize').innerText;
-        const volume = document.getElementById('ivol').innerText;
-        // const printing_time = document.getElementById('itime').innerText;
-        // const printing_speed = document.getElementById('ispeed').innerText;
+        const bounding_box = document.getElementById('isize').innerText
+        const volume = document.getElementById('ivol').innerText
+        const printing_speed = document.getElementById("printSpeed").value
+        const printing_time = document.getElementById("speed").innerHTML
         const material_resin = document.getElementById("resin").value
         const price_estimate = document.getElementById("calc").innerHTML
+		
         const basicDetails = { model_name , bounding_box, volume }
-        // const printingDetails = { printing_time, printing_speed }
+        const printingDetails = { printing_speed, printing_time }
         const materialDetails = { material_resin }
         const priceDetails = { price_estimate }
         pdf.setFontSize(10)
@@ -1076,13 +1077,13 @@ function generate_PDF()
         Object.keys(basicDetails).forEach((k, i) => {
             pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
         })
-        // pdf.setFontSize(20)
-        // pdf.text('Printing Info:', 15, 100)
+        pdf.setFontSize(20)
+        pdf.text('Printing Info:', 15, 100)
 		
-		// pdf.setFontSize(10)
-		// Object.keys(printingDetails).forEach((k, i) => {
-		// 	pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${printingDetails[k]}`, 15, 110 + (10 * i))
-		// })
+		pdf.setFontSize(10)
+		Object.keys(printingDetails).forEach((k, i) => {
+			pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${printingDetails[k]}`, 15, 110 + (10 * i))
+		})
 		pdf.setFontSize(20)
 		pdf.text(`Material Info:`, 15, 140)
 		
