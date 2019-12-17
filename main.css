@@ -14,6 +14,11 @@ body {margin: 0;}
 .cinfo table {width:100%;}
 .cinfo tr {text-align:left;vertical-align:top;}
 
+.measure 
+{
+    font-size: small;
+}
+
 #statswrap
 {
     display:inline-block;
