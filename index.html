@@ -985,7 +985,7 @@
 									</select>
 								</form>
 								<button type="button" onclick=getThePrice()>Calculate Price</button>
-								<br>
+								<br><br>
 								<div id="calc"></div>
 								<script>
 									function getThePrice(){
@@ -1052,37 +1052,32 @@ function generate_PDF()
 		pdf.text('© Copyright 2019. OPT Industries Inc. All rights reserved.', 30, 230)
 		
 		var canvas = document.querySelector('#cjcwrap canvas')
-		var previewImage = canvas.toDataURL('image/png')	
-
-		// const model_name = "modelName"
-		// const bounding_box = document.getElementById('isize').innerText;
-		// const volume = document.getElementById('ivol').innerText;
-		// const printing_time = document.getElementById('itime').innerText;
-		// const printing_speed = document.getElementById('ispeed').innerText;
-		const material_resin = document.getElementById("resin").innerHTML
-		const price_estimate = document.getElementById("calc").innerHTML
-
-
-		// const basicDetails = { model_name, bounding_box, volume }
-		// const printingDetails = { printing_time, printing_speed }
-		const materialDetails = { material_resin }
-		const priceDetails = { price_estimate }
-
-		// pdf.setFontSize(10)
-		// Object.keys(basicDetails).forEach((k, i) => {
-		// 	pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
-		// })
-						
-		// // Header for each object
-		// pdf.setFontSize(20)
-		// pdf.text('Model Info:', 15, 50)
-
-		// pdf.setFontSize(10)
-		// Object.keys(basicDetails).forEach((k, i) => {
-		// 	pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
-		// })
-		// pdf.setFontSize(20)
-		// pdf.text('Printing Info:', 15, 100)
+        var previewImage = canvas.toDataURL('image/png')    
+        const model_name = document.getElementById('ifilename').innerText
+        const bounding_box = document.getElementById('isize').innerText;
+        const volume = document.getElementById('ivol').innerText;
+        // const printing_time = document.getElementById('itime').innerText;
+        // const printing_speed = document.getElementById('ispeed').innerText;
+        const material_resin = document.getElementById("resin").value
+        const price_estimate = document.getElementById("calc").innerHTML
+        const basicDetails = { model_name , bounding_box, volume }
+        // const printingDetails = { printing_time, printing_speed }
+        const materialDetails = { material_resin }
+        const priceDetails = { price_estimate }
+        pdf.setFontSize(10)
+        Object.keys(basicDetails).forEach((k, i) => {
+            pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
+        })
+                        
+        // Header for each object
+        pdf.setFontSize(20)
+        pdf.text('Model Info:', 15, 50)
+        pdf.setFontSize(10)
+        Object.keys(basicDetails).forEach((k, i) => {
+            pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
+        })
+        // pdf.setFontSize(20)
+        // pdf.text('Printing Info:', 15, 100)
 		
 		// pdf.setFontSize(10)
 		// Object.keys(printingDetails).forEach((k, i) => {
